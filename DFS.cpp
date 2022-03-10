@@ -1,3 +1,41 @@
+// DFS
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+vector <int> v[1000];
+int vis[1000];
+void DFS(int nd)
+{
+    vis[nd] = 1;
+    cout << nd << "->";
+    for(int i=0; i<v[nd].size(); i++)
+    {
+        int child = v[nd][i];
+        if(vis[child] == 0)
+        {
+            DFS(child);
+        }
+    }
+}
+int main()
+{
+    int node, edge;
+    cin >> node >> edge;
+    while(edge--)
+    {
+        int x, y;
+        cin >> x >> y;
+        v[x].push_back(y);
+        v[y].push_back(x);
+    }
+    DFS(1);
+    return 0;
+}
+
+
+/*
+Alternative way : using class :
+---------------------------------------------
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -40,3 +78,4 @@ int main()
 
     return 0;
 }
+*/
