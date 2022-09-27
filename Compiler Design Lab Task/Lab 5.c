@@ -15,6 +15,8 @@ int main()
             {
                 flag = 1;
             }
+            else 
+                continue;
         }
     }
     if(flag)
